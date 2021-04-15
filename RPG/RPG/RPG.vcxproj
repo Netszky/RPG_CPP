@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClInclude Include="Arme.h" />
     <ClInclude Include="Armure.h" />
+    <ClInclude Include="ArrayTemplate.h" />
     <ClInclude Include="Ennemi.h" />
     <ClInclude Include="Evenement.h" />
     <ClInclude Include="Fonctions.h" />

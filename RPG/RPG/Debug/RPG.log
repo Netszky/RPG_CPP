@@ -3,10 +3,10 @@ C:\Users\manci\Desktop\C++\RPG\RPG\Inventaire.h(24,24): warning C4018: '<' : in
   Jeu.cpp
 C:\Users\manci\Desktop\C++\RPG\RPG\Inventaire.h(24,24): warning C4018: '<' : incompatibilité signed/unsigned
 C:\Users\manci\Desktop\C++\RPG\RPG\Jeu.h(15,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-C:\Users\manci\Desktop\C++\RPG\RPG\Jeu.cpp(20,20): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\manci\Desktop\C++\RPG\RPG\Jeu.cpp(19,20): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
   Personnage.cpp
 C:\Users\manci\Desktop\C++\RPG\RPG\Inventaire.h(24,24): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\manci\Desktop\C++\RPG\RPG\Personnage.cpp(48,20): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+C:\Users\manci\Desktop\C++\RPG\RPG\Personnage.cpp(60,20): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
   RPG.cpp
 C:\Users\manci\Desktop\C++\RPG\RPG\Inventaire.h(24,24): warning C4018: '<' : incompatibilité signed/unsigned
 C:\Users\manci\Desktop\C++\RPG\RPG\Jeu.h(15,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu

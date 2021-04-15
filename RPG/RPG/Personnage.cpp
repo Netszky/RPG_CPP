@@ -20,16 +20,28 @@ Personnage::Personnage()
 	this->ap = 0; // Adaptative Power Statistiques qui augmentes la puissance des compétences
 	this->precision = 0;
 }
-
+// Pour le chargement de personnage Personnage::Personnage(string name, int argent, int exp, int niveau, int vie, int vie_max, int mana, int mana_max, int defense, int cp, int ap, int sp);
 Personnage::~Personnage()
 {
+	this->name = name;
+	this->argent = 100;
+
+	this->exp = 0; // exp du personnage
+	this->niveau = 1; // niveau du personnage
+	this->nextniveau = this->niveau * 200; // exp avant prochain niveau
+	this->vie = 100; // vie du personnage
+	this->vie_max = 100; // vie_max du personnage
+	this->mana = 100; // Mana du personnage
+	this->mana_max = 100;
+	this->defense = 10; // Defense du personnage
+	this->degats = 10; // Dégats du personnage
+	this->cp = 0; // Point de compétences pour les améliorer
+	this->sp = 0; // Point de stats pour les améliorer
+	this->ap = 0; // Adaptative Power Statistiques qui augmentes la puissance des compétences
 }
 
 void Personnage::initialize(string name)
 {
-	this->x = 0.0;
-	this->y = 0.0;
-
 	this->name = name;
 	this->argent = 100;
 	
@@ -65,8 +77,11 @@ void Personnage::getInfo() const
 	cout << "CP Restants : " << this->cp << endl; 
 	cout << "SP Restants : " << this->sp << endl; 
 	cout << "AP Restants : " << this->ap << endl; 
-	cout << "Bras " << this->Armure_Bras.getName() << endl;
-
+	cout << "Bras :" << this->Armure_Bras.getName() << endl;
+	cout << "Tete :" << this->Armure_Tete.getName() << endl;
+	cout << "Torse :" << this->Armure_Torse.getName() << endl;
+	cout << "Jambe :" << this->Armure_Pieds.getName() << endl;
+	cout << "Arme :" << this->arme.getName() << endl;
 }
 
 string Personnage::getString() const {
@@ -89,11 +104,22 @@ string Personnage::getString() const {
 
 void Personnage::levelUp()
 {
-	if (exp >= nextniveau) {
 		niveau++;
 		this->exp = 0;
-		this->cp++;
-		this->sp++;
-		this->ap++;
+		//this->cp++;
+		this->sp+=2;
+		//this->ap++;
+}
+
+void Personnage::upStats()
+{
+
+}
+
+void Personnage::getHit(int damage)
+{
+	this->vie -= damage;
+	if (this->vie <= 0) {
+		this->vie = 0;
 	}
 }

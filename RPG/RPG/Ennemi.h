@@ -22,6 +22,10 @@ public:
 	std::string getInfo()const;
 	inline void getHit(int damage){ this->hp -= damage; };
 	inline int Hit()const { return rand() % this->damageMax - this->damageMin; };
-	inline int getExp()const { return this->level * 10; };
+	inline int getExp()const { return this->level * 200; };
+	inline int getVie()const { return this->hp; }
+	inline int getVieMax()const { return this->hpMax; }
+	inline int getDefense()const { return this->defense; }
+	inline int getDamage()const { return this->damageMax; }
 };
 

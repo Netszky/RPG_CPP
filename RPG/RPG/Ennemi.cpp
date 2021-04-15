@@ -8,7 +8,7 @@ Ennemi::Ennemi(std::string name, int level)
 	this->hpMax = this->level*20;
 	this->hp = this->hpMax;
 	this->damageMin = this->level*5;
-	this->damageMax = this->level*10;
+	this->damageMax = this->level*30;
 	this->loot = rand() % 100;
 	this->precision = rand() % 100;
 	this->defense = this->level*3;

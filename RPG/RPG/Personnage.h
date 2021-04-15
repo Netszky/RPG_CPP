@@ -13,10 +13,12 @@ public:
 	void getInfo() const;
 	string getString() const;
 	void levelUp();
+	void upStats();
 
 	const std::string& getName() const { return this->name; };
 	const int& getLevel() const { return this->niveau; };
 	const int& getExp() const { return this->exp; };
+	const int& getNextExp() const { return this->nextniveau; };
 	const double& getX() const { return this->x; };
 	const double& getY() const { return this->y; };
 	const int& getVie() const { return this->vie; };
@@ -30,10 +32,15 @@ public:
 	const int& getAp() const { return this->ap; };
 	const int& getPrecision() const { return this->precision; };
 	const int& getArgent() const { return this->argent; };
-	//const int& getDamageMax() const { return this->damageMax; };
 	//const int& getDefense() const { return this->defense; };
 	void setArgent(int gain){ this->argent += gain; };
 	void setXp(int xp) { this->exp += xp; };
+	void setHp(int hp) { this->vie_max += hp; };
+	void setDegats(int damage) { this->degats += damage; };
+	void setSp(int depense) { this->sp -= depense; };
+	void setDefense(int def) { this->defense += def; };
+	void getHit(int damage);
+	inline bool enVie() { return this->vie > 0; }
 private:
 
 	Inventaire inventaire;

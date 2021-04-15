@@ -12,7 +12,7 @@ Evenement::~Evenement()
 void Evenement::newEvent(Personnage &personnage)
 {
 	//int i = rand() % this->nbEvent + 1;
-	int i = 2;
+	int i = 1;
 	switch (i)
 	{
 	case 1:
@@ -31,7 +31,77 @@ void Evenement::newEvent(Personnage &personnage)
 
 void Evenement::Combat(Personnage& personnage)
 {
-	Ennemi en(rand)
+	Ennemi e1("Bob",personnage.getLevel());
+	int choix = 0;
+	bool turn = true;
+	bool escape = false;
+	bool playerdead = false;
+	bool ennemidead = false;
+
+	cout << e1.getName() << " Vous attaque !" << endl;
+	cout << e1.getInfo() << endl;
+
+	while (!escape && !playerdead && !ennemidead) {
+
+		if (turn) {
+			int escapechance = rand() % 3 + 1;
+			int precision = rand() % 100 + 1;
+			cout << "Actions : " << endl;
+			cout << "1. Fuite" << endl;
+			cout << "2. Attaque" << endl;
+			cout << "3. Compétences" << endl;
+			cout << "4. Objets" << endl;
+
+			cin >> choix;
+
+			switch (choix)
+			{
+			case 1:
+				
+				if (escapechance >= 2) {
+					cout << "Vous n'arrivez pas a fuir !" << endl;
+				}
+				if (escapechance <= 2) {
+					escape = true;
+					cout << "Vous Prenez la fuite !" << endl;
+				}
+				break;
+			case 2:
+				
+				if (precision > 10) {
+					cout << "Vous Attaquez" << endl;
+					e1.getHit(personnage.getDgt() - e1.getDefense());
+					cout << "Vous infligez " << personnage.getDgt() - e1.getDefense() << " Points de dégats" << endl;
+					cout << e1.getVie() << " / " << e1.getVieMax() << endl;
+				}
+				else {
+					cout << e1.getName() << "Esquive !" << endl;
+				}
+				break;
+			default:
+				break;
+			}
+			turn = false;
+		}
+		else {
+			personnage.getHit(e1.getDamage() - personnage.getDef());
+			cout << e1.getName() << "Vous Inflige :" << e1.getDamage() - personnage.getDef() << " points de dégats" << endl;
+			turn = true;
+		}
+
+		if (!personnage.enVie()) {
+			playerdead = true;
+			cout << "Vous avez été tué !" << endl;
+			cout << "Game over" << endl;
+		}
+		if (!e1.enVie()) {
+			ennemidead = true;
+			cout << e1.getName() << " est mort !" << endl;
+			personnage.setXp(e1.getExp());
+			cout << "Vous gagnez " << e1.getExp() << " Point d'expériences" << endl;
+			cout << personnage.getExp() << " / " << personnage.getNextExp() << endl;
+		}
+	}
 }
 
 void Evenement::Enigme(Personnage& personnage)
