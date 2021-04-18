@@ -12,6 +12,10 @@ Evenement::~Evenement()
 void Evenement::newEvent(Personnage &personnage)
 {
 	int i = rand() % this->nbEvent + 1;
+<<<<<<< HEAD
+=======
+	// Debug int i = 1;
+>>>>>>> d364d451ecae1fe4bb3b12f6a9fe043405840730
 	switch (i)
 	{
 	case 1:
@@ -48,7 +52,7 @@ void Evenement::Combat(Personnage& personnage)
 			cout << "Actions : " << endl;
 			cout << "1. Fuite" << endl;
 			cout << "2. Attaque" << endl;
-			cout << "3. Compétences" << endl;
+			cout << "3. CompÃ©tences" << endl;
 			cout << "4. Objets" << endl;
 
 			cin >> choix;
@@ -70,7 +74,11 @@ void Evenement::Combat(Personnage& personnage)
 				if (precision > 10) {
 					cout << "Vous Attaquez" << endl;
 					e1.getHit(personnage.getDgt() - e1.getDefense());
+<<<<<<< HEAD
 					cout << "Vous infligez " << personnage.getDgt() + personnage.getArme().getDmg() - e1.getDefense() << " Points de dégats" << endl;
+=======
+					cout << "Vous infligez " << personnage.getDgt() - e1.getDefense() << " Points de dÃ©gats" << endl;
+>>>>>>> d364d451ecae1fe4bb3b12f6a9fe043405840730
 					cout << e1.getVie() << " / " << e1.getVieMax() << endl;
 				}
 				else {
@@ -84,20 +92,20 @@ void Evenement::Combat(Personnage& personnage)
 		}
 		else {
 			personnage.getHit(e1.getDamage() - personnage.getDef());
-			cout << e1.getName() << "Vous Inflige :" << e1.getDamage() - personnage.getDef() << " points de dégats" << endl;
+			cout << e1.getName() << "Vous Inflige :" << e1.getDamage() - personnage.getDef() << " points de dÃ©gats" << endl;
 			turn = true;
 		}
 
 		if (!personnage.enVie()) {
 			playerdead = true;
-			cout << "Vous avez été tué !" << endl;
+			cout << "Vous avez Ã©tÃ© tuÃ© !" << endl;
 			cout << "Game over" << endl;
 		}
 		if (!e1.enVie()) {
 			ennemidead = true;
 			cout << e1.getName() << " est mort !" << endl;
 			personnage.setXp(e1.getExp());
-			cout << "Vous gagnez " << e1.getExp() << " Point d'expériences" << endl;
+			cout << "Vous gagnez " << e1.getExp() << " Point d'expÃ©riences" << endl;
 			cout << personnage.getExp() << " / " << personnage.getNextExp() << endl;
 		}
 	}
@@ -133,7 +141,7 @@ void Evenement::Enigme(Personnage& personnage)
 		}
 		else {
 			passed = true;
-			cout << "Vous n'avez pas réussi" << endl;
+			cout << "Vous n'avez pas rÃ©ussi" << endl;
 		}
 	}
 	system("cls");
@@ -142,11 +150,11 @@ void Evenement::Enigme(Personnage& personnage)
 void Evenement::Gamble(Personnage& personnage)
 {
 	int choiix = 0;
-	cout << "Vous décidé de jouer aux dés avec un mystérieux inconnu" << endl;
-	cout << "Règles du jeu : Vous avez 2 dés, et 3 lancés" << endl;
+	cout << "Vous dÃ©cidÃ© de jouer aux dÃ©s avec un mystÃ©rieux inconnu" << endl;
+	cout << "RÃ¨gles du jeu : Vous avez 2 dÃ©s, et 3 lancÃ©s" << endl;
 	cout << "Tentez de faire plus que votre adversaire" << endl;
 
-	cout << "1. Jeter les dés" << endl;
+	cout << "1. Jeter les dÃ©s" << endl;
 	cout << "2. Ne prendre aucun risque" << endl;
 	cin >> choiix;
 	switch (choiix)
