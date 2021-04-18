@@ -58,7 +58,11 @@ void Personnage::initialize(string name)
 	this->sp = 0; // Point de stats pour les améliorer
 	this->ap = 0; // Adaptative Power Statistiques qui augmentes la puissance des compétences
 	this->precision = 0.90;
-	this->Armure_Bras = Armure(1, 10, "WARMOG", 1, 110);
+	this->Armure_Bras = Armure(1, 10, "Proège-Bras", 1, 110);
+	this->Armure_Tete = Armure(1, 10, "Casque", 1, 50);
+	this->Armure_Pieds = Armure(1, 10, "TABI NINJA", 1, 50);
+	this->Armure_Torse = Armure(1, 10, "WARMOG", 1, 50);
+	this->arme = Arme(10, 20, 50, "BOTRK", 1, 1300);
 }
 
 void Personnage::getInfo() const
@@ -73,7 +77,7 @@ void Personnage::getInfo() const
 	cout << "Mana : " << this->mana << " / " << this-> mana_max << endl; 
 	cout << "Precision : " << this->precision << endl;
 	cout << "Defense : " << this->defense << endl; 
-	cout << "Dégats : " << this->degats << endl; 
+	cout << "Dégats : " <<" Degats personnage : " <<this->degats << "Degats Arme : " <<  this->arme.getDmg() << "Total : " << this->degats + this-> arme.getDmg() <<  endl; 
 	cout << "CP Restants : " << this->cp << endl; 
 	cout << "SP Restants : " << this->sp << endl; 
 	cout << "AP Restants : " << this->ap << endl; 

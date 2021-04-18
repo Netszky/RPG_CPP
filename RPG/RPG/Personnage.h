@@ -40,6 +40,7 @@ public:
 	void setSp(int depense) { this->sp -= depense; };
 	void setDefense(int def) { this->defense += def; };
 	void getHit(int damage);
+	const Arme& getArme() const { return this->arme; }
 	inline bool enVie() { return this->vie > 0; }
 private:
 

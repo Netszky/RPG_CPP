@@ -11,8 +11,7 @@ Evenement::~Evenement()
 
 void Evenement::newEvent(Personnage &personnage)
 {
-	//int i = rand() % this->nbEvent + 1;
-	int i = 1;
+	int i = rand() % this->nbEvent + 1;
 	switch (i)
 	{
 	case 1:
@@ -71,7 +70,7 @@ void Evenement::Combat(Personnage& personnage)
 				if (precision > 10) {
 					cout << "Vous Attaquez" << endl;
 					e1.getHit(personnage.getDgt() - e1.getDefense());
-					cout << "Vous infligez " << personnage.getDgt() - e1.getDefense() << " Points de dégats" << endl;
+					cout << "Vous infligez " << personnage.getDgt() + personnage.getArme().getDmg() - e1.getDefense() << " Points de dégats" << endl;
 					cout << e1.getVie() << " / " << e1.getVieMax() << endl;
 				}
 				else {
@@ -102,6 +101,7 @@ void Evenement::Combat(Personnage& personnage)
 			cout << personnage.getExp() << " / " << personnage.getNextExp() << endl;
 		}
 	}
+	system("cls");
 }
 
 void Evenement::Enigme(Personnage& personnage)
@@ -110,9 +110,9 @@ void Evenement::Enigme(Personnage& personnage)
 	int numb; int rep; int essai = 3;
 	numb = rand() % 100 + 1;
 	cout << "Guess the Number !" << endl; 
-	cout << numb << endl;
 	cout << "3 Essais !" << endl;
 	while (!passed) {
+		cout << "Entrez un nombre" << endl;
 		cin >> rep;
 		if (essai > 0) {
 			if (rep > numb) {
@@ -136,6 +136,7 @@ void Evenement::Enigme(Personnage& personnage)
 			cout << "Vous n'avez pas réussi" << endl;
 		}
 	}
+	system("cls");
 }
 
 void Evenement::Gamble(Personnage& personnage)

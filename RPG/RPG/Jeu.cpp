@@ -16,15 +16,12 @@ Jeu::~Jeu() {
 void Jeu::Start() {
 	createPersonnage();
 	Inventaire inv;
-	Arme Arme1(2, 10, 0.25, "BOTRK", 1, 100);
-	cout << Arme1.toString() << endl;
-	Armure A1(1, 10, "WARMOG", 1, 100);
-	cout << A1.toString() << endl;
-	cout << (personnages[choixPersonnage].getNextExp()) << endl;
 }
 
+// MENU PRINCIPAL
 void Jeu::mainMenu()
 {
+	Inventaire inv;
 	if (personnages[choixPersonnage].getExp() >= personnages[choixPersonnage].getNextExp()) {
 		 cout << "Niveau "  << personnages[choixPersonnage].getLevel() + 1 << "!" << endl;
 		 cout << "Vous avez Gagné 1 Point de compétences, Statistiques et d'aptitude !" << endl;;
@@ -42,6 +39,7 @@ void Jeu::mainMenu()
 	cout << "8. Quitter" << endl;
 	
 	cin >> choix;
+	system("cls");
 	int stats = 0;
 	switch (choix) {
 	case 1:
@@ -51,6 +49,7 @@ void Jeu::mainMenu()
 		Voyager();
 		break;
 	case 3:
+		// Pas encore fonctionnel
 		cout << "Vous commandez sur Amazon et avec Amazon Prime vous êtes livré instantanément !" << endl;
 		break;
 	case 4:
@@ -84,6 +83,7 @@ void Jeu::mainMenu()
 				break;
 			}
 		}
+		system("cls");
 		break;
 	case 5:
 
@@ -103,6 +103,7 @@ void Jeu::mainMenu()
 	}
 }
 
+// CREATION DE PERSONNAGE
 void Jeu::createPersonnage() {
 	string name;
 	cout << "Entrez le nom de votre personnage" << endl;
@@ -112,6 +113,8 @@ void Jeu::createPersonnage() {
 	choixPersonnage = personnages.size() - 1;
 	personnages[choixPersonnage].initialize(name);
 }
+
+// SAUVEGARDER PERSONNAGE DANS TXT
 void Jeu::savePersonnage() {
 	std::ofstream outFile(fichier);
 	if (outFile.is_open()) {
